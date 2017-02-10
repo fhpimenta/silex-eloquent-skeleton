@@ -1,0 +1,32 @@
+{
+    "name": "felipe/silex-skeleton",
+    "require": {
+        "silex/silex": "^2.0",
+        "twig/twig": "^2.1",
+        "symfony/yaml": "^3.2",
+        "symfony/console": "^3.2",
+        "robmorgan/phinx": "^0.6",
+        "illuminate/database": "^5.4"
+    },
+    "require-dev": {
+      "texthtml/whoops-silex": "~1.0",
+      "symfony/var-dumper": "^3.2"
+    },
+
+    "authors": [
+        {
+            "name": "Felipe Pimenta",
+            "email": "fhpimenta12@gmail.com"
+        }
+    ],
+
+    "autoload": {
+      "psr-4": {
+        "App\\": "app/"
+      }
+    },
+
+    "config": {
+      "bin-dir": "bin/"
+    }
+}

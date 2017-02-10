@@ -1,0 +1,36 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/bootstrap.php';
+
+use Symfony\Component\Console\Application;
+use App\Commands\GreetCommand;
+
+// Phinx commands
+use Phinx\Console\Command;
+
+$application = new Application("Jarvis", '0.1.0');
+
+$phinx_commands = [
+    new Command\Breakpoint(),
+    new Command\Create(),
+    new Command\Init(),
+    new Command\Migrate(),
+    new Command\Rollback(),
+    new Command\SeedCreate(),
+    new Command\SeedRun(),
+    new Command\Status(),
+    new Command\Test()
+];
+
+foreach ($phinx_commands as $command) {
+    $command->setName('phinx:' . $command->getName());
+}
+
+$application->addCommands($phinx_commands);
+
+//Custom commands
+$application->add(new GreetCommand());
+
+//Run it
+$application->run();
